@@ -5,7 +5,6 @@ matrix:
   - os: linux
     dist: trusty
     jdk: oraclejdk8
-    env: TARGET_CMAKE_NAME=cmake-3.7.20161217-g65aad-Linux-x86_64
     script:
       - ./gradlew assemble check
 
