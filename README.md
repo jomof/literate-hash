@@ -2,7 +2,7 @@
 
 # Literate Hash
 
-[Download cmakeserver-1.0-alpha1.jar] (https://github.com/jomof/literate-hash/releases/tag/cmakeserver-1.0-alpha1)
+// [Download] (https://github.com/jomof/literate-hash/releases/tag/cmakeserver-1.0-alpha1)
 
 Or build it yourself:
 
