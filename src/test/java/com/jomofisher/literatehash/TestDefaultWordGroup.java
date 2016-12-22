@@ -4,10 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.Test;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public class TestDefaultWordGroup {
     private static void assertThatArrayIsAllUnique(String array[]) {
@@ -39,7 +36,7 @@ public class TestDefaultWordGroup {
     public void testAdjectivesThatCanBeSafelyRemoved() {
         List<String> words = Lists.newArrayList(DefaultWordGroup.ADJECTIVES);
         List<String> removeable = Lists.newArrayList();
-        words.sort(new StringLengthListSort());
+        Collections.sort(words, new StringLengthListSort());
         Random rand = new Random();
         for (int i = 0; i < 10; ++i) {
             String candidate = words.get(0);
@@ -73,7 +70,7 @@ public class TestDefaultWordGroup {
     public void testNounsThatCanBeSafelyRemoved() {
         List<String> words = Lists.newArrayList(DefaultWordGroup.SINGULAR_NOUNS);
         List<String> removeable = Lists.newArrayList();
-        words.sort(new StringLengthListSort());
+        Collections.sort(words, new StringLengthListSort());
         Random rand = new Random();
         for (int i = 0; i < 10; ++i) {
             String candidate = words.get(0);

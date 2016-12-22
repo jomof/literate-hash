@@ -31,7 +31,7 @@ public class TestLiterateHash {
             try {
                 result = LiterateHash.of(r);
             } catch (Throwable e) {
-                throw new RuntimeException(String.format("Hash(%s)", r));
+                throw new RuntimeException(String.format("MatchingHash(%s)", r));
             }
             assertThat(result).named("Hash(%s)", r).doesNotContain("#");
             if (result.length() > maxLength) {
