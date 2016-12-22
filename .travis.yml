@@ -6,7 +6,7 @@ matrix:
     dist: trusty
     jdk: oraclejdk8
     script:
-      - ./gradlew assemble check
+      - ./gradlew assemble check --info
 
   - os: linux
     jdk: jdk7
@@ -16,7 +16,7 @@ matrix:
   - os: linux
     jdk: oraclejdk8
     script:
-      - ./gradlew assemble check
+      - ./gradlew assemble check --info
 
   - os: osx
     script:
