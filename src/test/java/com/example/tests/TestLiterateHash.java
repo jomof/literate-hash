@@ -23,7 +23,7 @@ public class TestLiterateHash {
     }
 
 
-    @Test
+    //@Test
     public void testRandomHash() {
         Random rand = new Random();
         int maxLength = 0;
