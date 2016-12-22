@@ -6,17 +6,17 @@ matrix:
     dist: trusty
     jdk: oraclejdk8
     script:
-      - ./gradlew assemble check --info
+      - ./gradlew assemble check --info --stacktrace
 
   - os: linux
     jdk: jdk7
     script:
-      - ./gradlew assemble check --info
+      - ./gradlew assemble check --info --stacktrace
 
   - os: linux
     jdk: oraclejdk8
     script:
-      - ./gradlew assemble check --info
+      - ./gradlew assemble check --info --stacktrace
 
   - os: osx
     script:
