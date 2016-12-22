@@ -54,28 +54,15 @@ public class TestDefaultWordGroup {
     }
 
     //@Test
-    public void testReformat() {
-        List<String> words = Lists.newArrayList(DefaultWordGroup.SINGULAR_NOUNS);
-        String result = "";
-        Collections.sort(words);
-        for (String word : words) {
-            if (word.length() <= 7) {
-                result += String.format("\"%s\", ", word);
-            }
-        }
-        System.out.printf("%s\n", result);
-    }
-
-    //@Test
     public void testAdjectivesThatCanBeSafelyRemoved() {
         List<String> words = Lists.newArrayList(DefaultWordGroup.ADJECTIVES);
         List<String> removeable = Lists.newArrayList();
         Collections.sort(words, new StringLengthListSort());
         Random rand = new Random();
-        for (int i = 0; i < 1000; ++i) {
+        for (int i = 0; i < 10; ++i) {
             String candidate = words.get(0);
             words.remove(0);
-            System.out.printf("Words left %s: %s\n", words.size(), candidate);
+            //System.out.printf("Words left %s: %s\n", words.size(), candidate);
             String newWords[] = words.toArray(new String[words.size() - 1]);
 
             LiterateHash hash = LiterateHash.newBuilder()
@@ -94,8 +81,6 @@ public class TestDefaultWordGroup {
                     return;
                 }
             }
-
-
             removeable.add(candidate);
         }
         System.out.printf("Can remove: %s\n", removeable);

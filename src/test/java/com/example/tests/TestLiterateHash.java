@@ -19,13 +19,12 @@ public class TestLiterateHash {
         assertThat(result).doesNotContain("#");
     }
 
-
-    //@Test
+    @Test
     public void testRandomHash() {
         Random rand = new Random();
         int maxLength = 0;
         String longest = "";
-        for (int i = 0; i < 50000000; ++i) {
+        for (int i = 0; i < 10; ++i) {
             int r = rand.nextInt();
             String result;
             try {
@@ -39,7 +38,7 @@ public class TestLiterateHash {
                 maxLength = result.length();
             }
 
-            //System.out.printf("%s\n", result);
+            System.out.printf("%s\n", result);
         }
         System.out.printf("Longest was %s characters: %s", maxLength, longest);
     }
