@@ -2,8 +2,17 @@
 
 
 # Literate Hash
+Creates a hash code that is human-readable and easier to remember than a 32-bit number.
 
-// [Download] (https://github.com/jomof/literate-hash/releases/tag/cmakeserver-1.0-alpha1)
+        String hash = LiterateHash.of(
+                "Beware the Jabberwock, my son!" +
+                "The jaws that bite, the claws that catch!" +
+                "Beware the Jubjub bird, and shun\n" +
+                "The frumious Bandersnatch! ");
+                
+        Result: JediGalaxyRaisesTiger
+
+[Download] (https://github.com/jomof/literate-hash/releases)
 
 Or build it yourself:
 

@@ -27,6 +27,16 @@ public class TestLiterateHash {
     }
 
     @Test
+    public void testOfString() {
+        String hash = LiterateHash.of(
+                "Beware the Jabberwock, my son!" +
+                        "The jaws that bite, the claws that catch!" +
+                        "Beware the Jubjub bird, and shun" +
+                        "The frumious Bandersnatch! ");
+        assertThat(hash).isEqualTo("JediGalaxyRaisesTiger");
+    }
+
+    @Test
     public void testRandomHash() {
         Random rand = new Random();
         int maxLength = 0;
