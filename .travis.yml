@@ -11,7 +11,7 @@ matrix:
   - os: linux
     jdk: jdk7
     script:
-      - ./gradlew assemble check
+      - ./gradlew assemble check --info
 
   - os: linux
     jdk: oraclejdk8
