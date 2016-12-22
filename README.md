@@ -7,7 +7,7 @@ Creates a hash code that is human-readable and easier to remember than a 32-bit 
         String hash = LiterateHash.of(
                 "Beware the Jabberwock, my son!" +
                 "The jaws that bite, the claws that catch!" +
-                "Beware the Jubjub bird, and shun\n" +
+                "Beware the Jubjub bird, and shun" +
                 "The frumious Bandersnatch! ");
                 
         Result: JediGalaxyRaisesTiger
