@@ -25,9 +25,6 @@ public class LiterateHash {
         testPattern(1);
         testPattern(Integer.MAX_VALUE);
         testPattern(Integer.MIN_VALUE);
-        testPattern(2147483647);
-        testPattern(-1808414717);
-        testPattern(856233665);
     }
 
     /**

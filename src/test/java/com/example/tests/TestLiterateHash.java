@@ -8,10 +8,17 @@ import java.util.Random;
 import static com.google.common.truth.Truth.assertThat;
 
 public class TestLiterateHash {
-//    @Test
-//    public void testNewBuilder() {
-//        LiterateHash.newBuilder().compile();
-//    }
+    @Test
+    public void testNewBuilder() {
+        LiterateHash hash = LiterateHash.newBuilder()
+                .allowLiteralTextInPattern()
+                .addPattern("{SingularNoun}{SingularVerb}The{Adj}{SingularNoun}")
+                .addPattern("{SingularNoun}{SingularNoun}{SingularVerb}{SingularNoun}")
+                .addPattern("{Adj}{SingularNoun}{SingularVerb}{SingularNoun}")
+                .compile();
+        String result = hash.getLiterateHash(192);
+        assertThat(result).doesNotContain("#");
+    }
 
     @Test
     public void testOfInt() {

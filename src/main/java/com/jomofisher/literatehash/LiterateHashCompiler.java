@@ -7,7 +7,7 @@ import java.util.*;
  * easily remembered.
  */
 public class LiterateHashCompiler {
-    private Map<String, String[]> groups = new HashMap<>();
+    private final Map<String, String[]> groups = new HashMap<>();
     private List<List<String[]>> patterns = null;
     private boolean allowLiteralTextInPattern = false;
 

@@ -3,7 +3,7 @@ package com.jomofisher.literatehash;
 /**
  * Some built-in word groups.
  */
-public class DefaultWordGroup {
+class DefaultWordGroup {
 
     final static String ADJECTIVE_CODE = "{Adj}";
     final static String ADJECTIVES[] = new String[]{
