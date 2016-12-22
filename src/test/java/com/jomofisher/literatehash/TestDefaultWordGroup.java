@@ -38,7 +38,7 @@ public class TestDefaultWordGroup {
         assertThatArrayIsAllUnique(DefaultWordGroup.SINGULAR_NOUNS);
     }
 
-    @Test
+    //@Test
     public void testAdjectivesThatCanBeSafelyRemoved() {
         List<String> words = Lists.newArrayList(DefaultWordGroup.ADJECTIVES);
         List<String> removeable = Lists.newArrayList();
