@@ -2,14 +2,12 @@ package com.example.tests;
 
 import com.jomofisher.literatehash.LiterateHash;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 import java.util.Random;
 
 import static com.google.common.truth.Truth.assertThat;
 
-@RunWith(JUnit4.class)
+//@RunWith(JUnit4.class)
 public class TestLiterateHash {
 //    @Test
 //    public void testNewBuilder() {

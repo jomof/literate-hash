@@ -3,15 +3,13 @@ package com.jomofisher.literatehash;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-@RunWith(JUnit4.class)
+//@RunWith(JUnit4.class)
 public class TestDefaultWordGroup {
     private static void assertThatArrayIsAllUnique(String array[]) {
         Set<String> seen = Sets.newHashSet();
