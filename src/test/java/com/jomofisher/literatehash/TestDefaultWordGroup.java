@@ -17,9 +17,30 @@ public class TestDefaultWordGroup {
         }
     }
 
+    private static void assertThatTwoArraysAreAllUnique(String array1[], String array2[]) {
+        Set<String> seen = Sets.newHashSet();
+        for (String element : array1) {
+            if (seen.contains(element)) {
+                throw new RuntimeException(String.format("Array contains duplicate value %s", element));
+            }
+            seen.add(element);
+        }
+        for (String element : array2) {
+            if (seen.contains(element)) {
+                throw new RuntimeException(String.format("Array contains duplicate value %s", element));
+            }
+            seen.add(element);
+        }
+    }
+
     @Test
     public void testUniqueAdjectives() {
         assertThatArrayIsAllUnique(DefaultWordGroup.ADJECTIVES);
+    }
+
+    @Test
+    public void testUniqueAdjectivesAndAdjectives() {
+        assertThatTwoArraysAreAllUnique(DefaultWordGroup.ADJECTIVES, DefaultWordGroup.SINGULAR_NOUNS);
     }
 
     @Test
@@ -32,15 +53,29 @@ public class TestDefaultWordGroup {
         assertThatArrayIsAllUnique(DefaultWordGroup.SINGULAR_NOUNS);
     }
 
-    @Test
+    //@Test
+    public void testReformat() {
+        List<String> words = Lists.newArrayList(DefaultWordGroup.SINGULAR_NOUNS);
+        String result = "";
+        Collections.sort(words);
+        for (String word : words) {
+            if (word.length() <= 7) {
+                result += String.format("\"%s\", ", word);
+            }
+        }
+        System.out.printf("%s\n", result);
+    }
+
+    //@Test
     public void testAdjectivesThatCanBeSafelyRemoved() {
         List<String> words = Lists.newArrayList(DefaultWordGroup.ADJECTIVES);
         List<String> removeable = Lists.newArrayList();
         Collections.sort(words, new StringLengthListSort());
         Random rand = new Random();
-        for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 1000; ++i) {
             String candidate = words.get(0);
             words.remove(0);
+            System.out.printf("Words left %s: %s\n", words.size(), candidate);
             String newWords[] = words.toArray(new String[words.size() - 1]);
 
             LiterateHash hash = LiterateHash.newBuilder()

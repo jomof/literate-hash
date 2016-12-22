@@ -25,7 +25,7 @@ public class TestLiterateHash {
         Random rand = new Random();
         int maxLength = 0;
         String longest = "";
-        for (int i = 0; i < 50000; ++i) {
+        for (int i = 0; i < 50000000; ++i) {
             int r = rand.nextInt();
             String result;
             try {

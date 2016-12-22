@@ -119,6 +119,17 @@ public class LiterateHashCompiler {
         if (patterns == null || patterns.size() == 0) {
             throw new RuntimeException("Expected addPattern to have been called");
         }
+
+        Set<String> seen = new HashSet<>();
+        for (String[] group : groups.values()) {
+            for (String element : group) {
+                if (seen.contains(element)) {
+                    throw new RuntimeException(String.format("Duplicate word '%s' seen in two different groups",
+                            element));
+                }
+                seen.add(element);
+            }
+        }
         return new LiterateHash(this.patterns);
     }
 }

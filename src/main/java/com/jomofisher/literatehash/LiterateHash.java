@@ -67,7 +67,7 @@ public class LiterateHash {
     private String fromScrambledInt(int number) {
         // Handle negative
         if (number < 0) {
-            number *= 2; // maybe lose a bit here ¯\_(ツ)_/¯
+            number /= 2; // lose a bit here ¯\_(ツ)_/¯
             if (number < 0) {
                 number = -number;
             }
