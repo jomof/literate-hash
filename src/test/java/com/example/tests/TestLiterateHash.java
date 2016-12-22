@@ -33,7 +33,19 @@ public class TestLiterateHash {
                         "The jaws that bite, the claws that catch!" +
                         "Beware the Jubjub bird, and shun" +
                         "The frumious Bandersnatch! ");
-        assertThat(hash).isEqualTo("JediGalaxyRaisesTiger");
+        assertThat(hash).isEqualTo("TidyRadioThrillsLead");
+    }
+
+    //@Test
+    public void testSelfHash() {
+        String current = "";
+        String last = "hello";
+        while (!last.equals(current)) {
+            last = current;
+            current = LiterateHash.of(last);
+        }
+        System.out.printf("Found self hash: %s", last);
+
     }
 
     @Test
@@ -41,7 +53,7 @@ public class TestLiterateHash {
         Random rand = new Random();
         int maxLength = 0;
         String longest = "";
-        for (int i = 0; i < 10; ++i) {
+        for (int i = 0; i < 1000; ++i) {
             int r = rand.nextInt();
             String result;
             try {
@@ -55,7 +67,7 @@ public class TestLiterateHash {
                 maxLength = result.length();
             }
 
-            System.out.printf("%s\n", result);
+            //System.out.printf("%s\n", result);
         }
         System.out.printf("Longest was %s characters: %s", maxLength, longest);
     }

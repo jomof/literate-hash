@@ -8,13 +8,14 @@ if (System.getenv()["TRAVIS_TAG"] != null) {
 }
 
 repositories {
-  jcenter()
+    jcenter()
+    maven { url 'https://jitpack.io' }
 }
 
 buildscript {
-  repositories {
-      jcenter()
-  }
+    repositories {
+        jcenter()
+    }
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

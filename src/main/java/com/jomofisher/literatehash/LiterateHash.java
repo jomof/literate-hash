@@ -25,6 +25,7 @@ public class LiterateHash {
         testPattern(1);
         testPattern(Integer.MAX_VALUE);
         testPattern(Integer.MIN_VALUE);
+        testPattern(-769513899);
     }
 
     /**
@@ -37,6 +38,14 @@ public class LiterateHash {
                 .setThirdPersonSingularNouns(DefaultWordGroup.THIRD_PERSON_SINGULAR_VERBS);
     }
 
+    /**
+     * Given an object, first convert it to an integer hash code by calling object.hashCode(). This integer is then
+     * converted to a text phrase like "SpaceWizardHelpsDrifter". Only 32-bits of information are encoded in the
+     * hash so collisions should be as likely as collisions between normal Java hash codes.
+     *
+     * @param object the object to hash.
+     * @return an string phrase that is easier to remember.
+     */
     public static String of(Object object) {
         return DEFAULT_HASHER.getLiterateHash(object.hashCode());
     }
@@ -61,17 +70,15 @@ public class LiterateHash {
         return fromScrambledInt(number);
     }
 
-    private String fromScrambledInt(int number) {
+    private String fromScrambledInt(int num) {
+        long number = num;
         // Handle negative
         if (number < 0) {
-            number /= 2; // lose a bit here ¯\_(ツ)_/¯
-            if (number < 0) {
-                number = -number;
-            }
+            number *= -2;
         }
 
         // Choose a pattern to follow
-        int index = number % patterns.size();
+        int index = (int) (number % patterns.size());
         if (index < 0) {
             throw new RuntimeException(String.format("Negative index from %s and %s", number, patterns.size()));
         }
@@ -81,7 +88,7 @@ public class LiterateHash {
         // Follow the pattern to construct hash
         StringBuilder result = new StringBuilder();
         for (String[] wordGroup : pattern) {
-            result.append(wordGroup[number % wordGroup.length]);
+            result.append(wordGroup[(int) (number % wordGroup.length)]);
             number /= wordGroup.length;
         }
 

@@ -20,7 +20,22 @@ class DefaultWordGroup {
             "Salty", "Sandy", "Sepia", "Shadow", "Showy", "Sienna", "Silver", "Ski", "Smelly", "Smoke", "Soft",
             "Soggy", "Solar", "Sour", "Space", "Sparse", "Speed", "Speedy", "Spice", "Square", "Street", "Sub",
             "Super", "Surf", "Swamp", "Sweet", "Tall", "Tan", "Tart", "Tidy", "Toffee", "Tonic", "Triple", "Tuning",
-            "Violet", "Weak", "White", "Wild", "Yellow", "Zesty", "Zippy",
+            "Violet", "Weak", "White", "Wild", "Yellow", "Zesty", "Zippy", "Happy", "Lucky", "Unlucky", "Guava",
+            "Amber", "Hot", "Cold", "Winner", "Acolyte", "Elder", "Sister", "Brother", "Mother", "Father", "Free",
+            "Broken", "Perfect", "Smart", "Plain", "Pretty", "Handsome", "Attractive", "Hero", "Warrior", "Noble",
+            "Gentle", "Titled", "Worthy", "Decent", "Upright", "Moral", "Reputable", "Sugary", "Nice", "Fine",
+            "Lovely", "Great", "Notable", "Famed", "Revered", "Eminent", "Special", "Serious", "Large", "Big",
+            "Extensive", "Expansive", "Broad", "Wide", "Sizable", "Huge", "Massive", "Ample", "Compact", "Dense",
+            "Thick", "Tight", "Firm", "Profuse", "Bushy", "Rich", "Riotous", "Impassable", "Opulent", "Generous",
+            "Copious", "Splendid", "Fancy", "Classy", "Ritzy", "Swank", "Lavish", "Prolific", "Creative",
+            "Lush", "Original", "Artistic", "Inspired", "Visionary", "Enterprising", "Resourceful", "Innovative",
+            "Experimental", "Trial", "Test", "Pilot", "Unorthodox", "Alternative", "Exploratory", "Radical",
+            "Complete", "Thorough", "Profound", "Major", "Sweeping", "Rigorous", "Stringent", "Total", "Entire",
+            "Whole", "Aggregate", "Final", "Utter", "Absolute", "Sheer", "Arrant", "Positive", "Rank", "Qualified",
+            "Devoted", "Loyal", "Faithful", "True", "Constant", "Committed", "Devout", "Steadfast", "Loving",
+            "Caring", "Affectionate", "Fond", "Pious", "Reverent", "Dutiful", "Righteous", "Orthodox", "Genuine",
+            "Keen", "Ardent", "Fervent", "Sworn", "Zealous"
+
     };
 
     final static String SINGULAR_PRONOUN_CODE = "{SingularPronoun}";

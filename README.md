@@ -10,7 +10,7 @@ Creates a hash code that is human-readable and easier to remember than a 32-bit 
                 "Beware the Jubjub bird, and shun" +
                 "The frumious Bandersnatch! ");
                 
-        Result: JediGalaxyRaisesTiger
+        Result: TidyRadioThrillsLead
 
 [Download] (https://github.com/jomof/literate-hash/releases)
 
