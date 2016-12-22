@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/jomof/literate-hash.svg?branch=master)](https://travis-ci.org/jomof/literate-hash)
-
+[![](https://jitpack.io/v/jomof/literate-hash.svg)](https://jitpack.io/#jomof/literate-hash)
 
 # Literate Hash
 Creates a hash code that is human-readable and easier to remember than a 32-bit number.
@@ -12,9 +12,8 @@ Creates a hash code that is human-readable and easier to remember than a 32-bit 
                 
         Result: JediGalaxyRaisesTiger
 
-[Download] (https://github.com/jomof/literate-hash/releases)
 
-Or build it yourself:
+# Building the Code
 
     git clone https://github.com/jomof/literate-hash.git
     cd literate-hash
