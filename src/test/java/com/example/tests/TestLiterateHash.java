@@ -7,7 +7,6 @@ import java.util.Random;
 
 import static com.google.common.truth.Truth.assertThat;
 
-//@RunWith(JUnit4.class)
 public class TestLiterateHash {
 //    @Test
 //    public void testNewBuilder() {

@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-//@RunWith(JUnit4.class)
 public class TestDefaultWordGroup {
     private static void assertThatArrayIsAllUnique(String array[]) {
         Set<String> seen = Sets.newHashSet();
@@ -70,7 +69,7 @@ public class TestDefaultWordGroup {
         System.out.printf("Can remove: %s\n", removeable);
     }
 
-    @Test
+    //@Test
     public void testNounsThatCanBeSafelyRemoved() {
         List<String> words = Lists.newArrayList(DefaultWordGroup.SINGULAR_NOUNS);
         List<String> removeable = Lists.newArrayList();
