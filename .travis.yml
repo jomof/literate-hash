@@ -6,6 +6,8 @@ matrix:
     jdk: jdk7
     script:
     - "./gradlew assemble check"
+    after_success:
+    - bash <(curl -s https://codecov.io/bash)
   - os: linux
     dist: trusty
     jdk: oraclejdk8
