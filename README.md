@@ -20,7 +20,7 @@ Creates a hash code that is human-readable and easier to remember than a 32-bit 
     }
     
     dependencies {
-        compile 'com.jomofisher:literate-hash:1.0-alpha6'
+        compile 'com.jomofisher:literate-hash:1.0-alpha7'
     }
 
 # Building the Code
