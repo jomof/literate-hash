@@ -85,6 +85,17 @@ public class TestLiterateHash {
     }
 
     @Test
+    public void testLiteralTextAllowedAtEnd() {
+        String hash =
+                LiterateHash.newBuilder()
+                        .allowLiteralTextInPattern()
+                        .addPattern("{SingularPronoun}{SingularVerb}{Adj}{SingularNoun}{SingularNoun}TheEnd")
+                        .compile()
+                        .getLiterateHash(192);
+        assertThat(hash).contains("TheEnd");
+    }
+
+    @Test
     public void testCompileWithNoAddPattern() {
         try {
             LiterateHash.newBuilder()
@@ -108,6 +119,24 @@ public class TestLiterateHash {
                 .compile();
         String result = hash.getLiterateHash(192);
         assertThat(result).doesNotContain("#");
+    }
+
+    @Test
+    public void testInsufficientWordSpace() {
+        try {
+            LiterateHash hash = LiterateHash.newBuilder()
+                    .allowLiteralTextInPattern()
+                    .addPattern("{SingularNoun}{SingularVerb}The{Adj}{SingularNoun}")
+                    .compile();
+            String result = hash.getLiterateHash(192);
+            assertThat(result).doesNotContain("#");
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("which has #")) {
+                return;
+            }
+            throw e;
+        }
+        throw new RuntimeException("Expected failure");
     }
 
     @Test

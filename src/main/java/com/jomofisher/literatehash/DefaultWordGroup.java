@@ -3,8 +3,7 @@ package com.jomofisher.literatehash;
 /**
  * Some built-in word groups.
  */
-class DefaultWordGroup {
-
+final class DefaultWordGroup {
     final static String ADJECTIVE_CODE = "{Adj}";
     final static String ADJECTIVES[] = new String[]{
             "Active", "Almond", "Anise", "Apple", "Atomic", "Bacon", "Beaver", "Best", "Better", "Bitter", "Black",
@@ -37,10 +36,8 @@ class DefaultWordGroup {
             "Keen", "Ardent", "Fervent", "Sworn", "Zealous"
 
     };
-
     final static String SINGULAR_PRONOUN_CODE = "{SingularPronoun}";
     final static String SINGULAR_PRONOUNS[] = new String[]{"He", "She", "It"};
-
     final static String SINGULAR_NOUN_CODE = "{SingularNoun}";
     final static String SINGULAR_NOUNS[] = new String[]{
             "Akita", "All", "Alley", "Ambush", "Anatomy", "Angel", "Area", "Argon", "Arsenic", "Artist", "Aster",
@@ -74,7 +71,6 @@ class DefaultWordGroup {
             "Uranium", "Vessel", "Vine", "Violin", "Wall", "Water", "Whale", "Wheat", "Wheel", "Whippet", "Wick",
             "Window", "Wine", "Wire", "Wizard", "World", "Worm", "Xenon", "Yacht", "Yawl", "Year", "Zinc", "Zoology",
     };
-
     final static String THIRD_PERSON_SINGULAR_VERB_CODE = "{SingularVerb}";
     final static String THIRD_PERSON_SINGULAR_VERBS[] = new String[]{
             "Speaks", "Learns", "Opens", "Closes", "Calls", "Asks", "Becomes", "Helps",
@@ -85,4 +81,8 @@ class DefaultWordGroup {
             "Reads", "Drives", "Throws", "Hammers", "Drills", "Thrills", "Kills", "Wills", "Greets",
             "Mills", "Chills", "Is", "Was"
     };
+
+    private DefaultWordGroup() {
+
+    }
 }
