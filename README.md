@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/jomof/literate-hash.svg?branch=master)](https://travis-ci.org/jomof/literate-hash)
-[![](https://jitpack.io/v/jomof/literate-hash.svg)](https://jitpack.io/#jomof/literate-hash)
+[![](https://jitpack.io/v/com.jomofisher/literate-hash.svg)](https://jitpack.io/#com.jomofisher/literate-hash)
 [![codecov](https://codecov.io/gh/jomof/literate-hash/branch/master/graph/badge.svg)](https://codecov.io/gh/jomof/literate-hash)
 
 # Literate Hash
@@ -20,7 +20,7 @@ Creates a hash code that is human-readable and easier to remember than a 32-bit 
     }
     
     dependencies {
-        compile 'com.github.jomof:literate-hash:*'
+        compile 'com.jomofisher:literate-hash:1.0-alpha6'
     }
 
 # Building the Code
