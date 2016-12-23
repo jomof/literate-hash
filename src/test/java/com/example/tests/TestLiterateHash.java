@@ -140,6 +140,24 @@ public class TestLiterateHash {
     }
 
     @Test
+    public void testInsufficientWordSpaceUnscrambled() {
+        try {
+            LiterateHash hash = LiterateHash.newBuilder()
+                    .allowLiteralTextInPattern()
+                    .addPattern("{SingularNoun}{SingularVerb}The{Adj}{SingularNoun}")
+                    .compile();
+            String result = hash.getLiterateHash(192 ^ 2147483647);
+            assertThat(result).doesNotContain("#");
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("which has #")) {
+                return;
+            }
+            throw e;
+        }
+        throw new RuntimeException("Expected failure");
+    }
+
+    @Test
     public void testOfInt() {
         String result = LiterateHash.of(192);
         assertThat(result).doesNotContain("#");
