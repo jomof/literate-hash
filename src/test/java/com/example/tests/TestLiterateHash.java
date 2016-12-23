@@ -59,6 +59,46 @@ public class TestLiterateHash {
     }
 
     @Test
+    public void testLiteralTextNotAllowed() {
+        try {
+            LiterateHash.newBuilder()
+                    .addPattern("{SingularPronoun}{SingularVerb}The{Adj}{SingularNoun}{SingularNoun}")
+                    .compile();
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("literal text")) {
+                return;
+            }
+            throw e;
+        }
+        throw new RuntimeException("Expected failure");
+    }
+
+    @Test
+    public void testLiteralTextAllowed() {
+        String hash =
+                LiterateHash.newBuilder()
+                        .allowLiteralTextInPattern()
+                        .addPattern("{SingularPronoun}{SingularVerb}The{Adj}{SingularNoun}{SingularNoun}")
+                        .compile()
+                        .getLiterateHash(192);
+        assertThat(hash).contains("The");
+    }
+
+    @Test
+    public void testCompileWithNoAddPattern() {
+        try {
+            LiterateHash.newBuilder()
+                    .compile();
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("addPattern")) {
+                return;
+            }
+            throw e;
+        }
+        throw new RuntimeException("Expected failure");
+    }
+
+    @Test
     public void testNewBuilder() {
         LiterateHash hash = LiterateHash.newBuilder()
                 .allowLiteralTextInPattern()

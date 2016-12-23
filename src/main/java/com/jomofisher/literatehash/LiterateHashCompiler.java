@@ -11,6 +11,7 @@ public class LiterateHashCompiler {
     private boolean allowLiteralTextInPattern = false;
     private List<String> patterns = new ArrayList<>();
 
+
     LiterateHashCompiler() {
         this.groups.put(DefaultWordGroup.SINGULAR_PRONOUN_CODE, DefaultWordGroup.SINGULAR_PRONOUNS);
     }

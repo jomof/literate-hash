@@ -79,9 +79,6 @@ public class LiterateHash {
 
         // Choose a pattern to follow
         int index = (int) (number % patterns.size());
-        if (index < 0) {
-            throw new RuntimeException(String.format("Negative index from %s and %s", number, patterns.size()));
-        }
         List<String[]> pattern = patterns.get(index);
         number /= patterns.size();
 
