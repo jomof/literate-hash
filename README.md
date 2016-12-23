@@ -20,7 +20,7 @@ Creates a hash code that is human-readable and easier to remember than a 32-bit 
     }
     
     dependencies {
-        compile 'com.github.jomof:literate-hash'
+        compile 'com.github.jomof:literate-hash:*'
     }
 
 # Building the Code
