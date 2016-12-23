@@ -5,7 +5,7 @@ matrix:
   - os: linux
     jdk: jdk7
     script:
-    - "./gradlew assemble check"
+    - "./gradlew assemble check jacocoTestReport"
     after_success:
     - bash <(curl -s https://codecov.io/bash)
   - os: linux
