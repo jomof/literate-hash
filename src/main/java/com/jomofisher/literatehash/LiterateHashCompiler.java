@@ -8,8 +8,8 @@ import java.util.*;
  */
 public class LiterateHashCompiler {
     private final Map<String, String[]> groups = new HashMap<>();
-    private List<List<String[]>> patterns = null;
     private boolean allowLiteralTextInPattern = false;
+    private List<String> patterns = new ArrayList<>();
 
     LiterateHashCompiler() {
         this.groups.put(DefaultWordGroup.SINGULAR_PRONOUN_CODE, DefaultWordGroup.SINGULAR_PRONOUNS);
@@ -19,7 +19,8 @@ public class LiterateHashCompiler {
         Set<String> seen = new HashSet<>();
         for (String element : array) {
             if (seen.contains(element)) {
-                throw new RuntimeException(String.format("Array contains duplicate value %s", element));
+                throw new RuntimeException(String.format(
+                        "Compilation failed because word '%s' appears more than once", element));
             }
             seen.add(element);
         }
@@ -28,7 +29,7 @@ public class LiterateHashCompiler {
     private static void assertThatArrayHasNoSpaces(String array[]) {
         for (String element : array) {
             if (element.contains(" ")) {
-                throw new RuntimeException(String.format("Array contains value with space '%s'", element));
+                throw new RuntimeException(String.format("Compilation failed because word has a space '%s'", element));
             }
         }
     }
@@ -36,10 +37,6 @@ public class LiterateHashCompiler {
     public LiterateHashCompiler setAdjectives(String adjectives[]) {
         assertThatArrayIsAllUnique(adjectives);
         assertThatArrayHasNoSpaces(adjectives);
-
-        if (patterns != null) {
-            throw new RuntimeException("Can't add more words after addPattern called");
-        }
         this.groups.put(DefaultWordGroup.ADJECTIVE_CODE, adjectives);
         return this;
     }
@@ -47,9 +44,6 @@ public class LiterateHashCompiler {
     public LiterateHashCompiler setSingularNouns(String singularNouns[]) {
         assertThatArrayIsAllUnique(singularNouns);
         assertThatArrayHasNoSpaces(singularNouns);
-        if (patterns != null) {
-            throw new RuntimeException("Can't add more words after addPattern called");
-        }
         this.groups.put(DefaultWordGroup.SINGULAR_NOUN_CODE, singularNouns);
         return this;
     }
@@ -57,9 +51,6 @@ public class LiterateHashCompiler {
     public LiterateHashCompiler setThirdPersonSingularNouns(String thirdPersonSingularNouns[]) {
         assertThatArrayIsAllUnique(thirdPersonSingularNouns);
         assertThatArrayHasNoSpaces(thirdPersonSingularNouns);
-        if (patterns != null) {
-            throw new RuntimeException("Can't add more words after addPattern called");
-        }
         this.groups.put(DefaultWordGroup.THIRD_PERSON_SINGULAR_VERB_CODE, thirdPersonSingularNouns);
         return this;
     }
@@ -70,9 +61,11 @@ public class LiterateHashCompiler {
     }
 
     public LiterateHashCompiler addPattern(String pattern) {
-        if (patterns == null) {
-            patterns = new ArrayList<>();
-        }
+        this.patterns.add(pattern);
+        return this;
+    }
+
+    private List<String[]> compilePattern(String pattern) {
         List<String[]> compiledPattern = new ArrayList<>();
         String residue = "";
         while (pattern.length() > 0) {
@@ -111,12 +104,11 @@ public class LiterateHashCompiler {
             compiledPattern.add(new String[]{residue});
         }
 
-        patterns.add(compiledPattern);
-        return this;
+        return compiledPattern;
     }
 
     public LiterateHash compile() {
-        if (patterns == null || patterns.size() == 0) {
+        if (patterns.size() == 0) {
             throw new RuntimeException("Expected addPattern to have been called");
         }
 
@@ -130,6 +122,13 @@ public class LiterateHashCompiler {
                 seen.add(element);
             }
         }
-        return new LiterateHash(this.patterns);
+
+        List<List<String[]>> compiledPatterns = new ArrayList<>();
+        for (String pattern : patterns) {
+            compiledPatterns.add(compilePattern(pattern));
+        }
+
+
+        return new LiterateHash(compiledPatterns);
     }
 }

@@ -8,6 +8,56 @@ import java.util.Random;
 import static com.google.common.truth.Truth.assertThat;
 
 public class TestLiterateHash {
+
+    @Test
+    public void testCompilerRejectsSpaceInWord() {
+        try {
+            LiterateHash.newBuilder()
+                    .setAdjectives(new String[]{"Very happy"})
+                    .compile();
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("space")) {
+                return;
+            }
+            throw e;
+        }
+        throw new RuntimeException("Expected failure");
+    }
+
+    @Test
+    public void testCompilerRejectsDuplicateWord() {
+        try {
+            LiterateHash.newBuilder()
+                    .setAdjectives(new String[]{"Happy", "Happy"})
+                    .compile();
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("more than once")) {
+                return;
+            }
+            throw e;
+        }
+        throw new RuntimeException("Expected failure");
+    }
+
+    @Test
+    public void testCompilerRejectsDuplicateWordsBetweenGroups() {
+        try {
+            LiterateHash.newBuilder()
+                    .addPattern("{SingularNoun}{SingularVerb}{Adj}{SingularNoun}")
+                    .addPattern("{SingularNoun}{SingularNoun}{SingularVerb}{SingularNoun}")
+                    .addPattern("{Adj}{SingularNoun}{SingularVerb}{SingularNoun}")
+                    .setAdjectives(new String[]{"Happy"})
+                    .setSingularNouns(new String[]{"Happy"})
+                    .compile();
+        } catch (RuntimeException e) {
+            if (e.getMessage().contains("uplicate")) {
+                return;
+            }
+            throw e;
+        }
+        throw new RuntimeException("Expected failure");
+    }
+
     @Test
     public void testNewBuilder() {
         LiterateHash hash = LiterateHash.newBuilder()
