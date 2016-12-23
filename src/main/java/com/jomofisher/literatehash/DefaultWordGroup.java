@@ -3,7 +3,7 @@ package com.jomofisher.literatehash;
 /**
  * Some built-in word groups.
  */
-final class DefaultWordGroup {
+abstract class DefaultWordGroup {
     final static String ADJECTIVE_CODE = "{Adj}";
     final static String ADJECTIVES[] = new String[]{
             "Active", "Almond", "Anise", "Apple", "Atomic", "Bacon", "Beaver", "Best", "Better", "Bitter", "Black",
@@ -81,8 +81,4 @@ final class DefaultWordGroup {
             "Reads", "Drives", "Throws", "Hammers", "Drills", "Thrills", "Kills", "Wills", "Greets",
             "Mills", "Chills", "Is", "Was"
     };
-
-    private DefaultWordGroup() {
-
-    }
 }
