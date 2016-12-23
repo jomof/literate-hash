@@ -96,6 +96,17 @@ public class TestLiterateHash {
     }
 
     @Test
+    public void testLiteralTextWithCurlyAllowed() {
+        String hash =
+                LiterateHash.newBuilder()
+                        .allowLiteralTextInPattern()
+                        .addPattern("{SingularPronoun}{SingularVerb}{Adj}{SingularNoun}{SingularNoun}{TheEnd}")
+                        .compile()
+                        .getLiterateHash(192);
+        assertThat(hash).contains("{TheEnd}");
+    }
+
+    @Test
     public void testCompileWithNoAddPattern() {
         try {
             LiterateHash.newBuilder()
