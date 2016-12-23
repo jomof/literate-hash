@@ -51,16 +51,11 @@ public class LiterateHash {
     }
 
     private void testPattern(int number) {
-        String hash = fromScrambledInt(number);
-        if (hash.contains("#")) {
-            throw new RuntimeException(String.format("Compiled hash builder failed test of %s, returning value " +
-                    "%s which has #", number, hash));
-        }
-
-        hash = fromInt(number);
-        if (hash.contains("#")) {
-            throw new RuntimeException(String.format("Compiled hash builder failed test of %s, returning value " +
-                    "%s which has #", number, hash));
+        String hash1 = fromScrambledInt(number);
+        String hash2 = fromInt(number);
+        if (hash1.contains("#") || hash2.contains("#")) {
+            throw new RuntimeException(String.format("Compiled hash builder failed test of %s or %s, returning value " +
+                    "%s which has #", number, hash1, hash2));
         }
     }
 
