@@ -13,6 +13,15 @@ Creates a hash code that is human-readable and easier to remember than a 32-bit 
                 
         Result: TidyRadioThrillsLead
 
+# Using from Gradle
+
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+    
+    dependencies {
+        compile 'com.github.jomof:literate-hash'
+    }
 
 # Building the Code
 
