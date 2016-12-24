@@ -46,7 +46,7 @@ abstract class DefaultWordGroup {
             "Boxer", "Burrito", "Burro", "Cabin", "Cable", "Cactus", "Candle",
             "Canoe", "Capsule", "Carbon", "Carrot", "Cat", "Cave", "Celery", "Ceramic", "Cesium",
             "Chest", "Child", "Chimney", "Choir", "Cigar", "Club", "Comet", "Conduit",
-            "Core", "Corgi", "Corn", "Couch", "Cousin", "Cow", "Crack", "Craft", "Cube", "Cutter", "Day", "Dhow",
+            "Core", "Corgi", "Corn", "Couch", "Cousin", "Cow", "Crack", "Craft", "Cube", "Cutter", "Day", "Well",
             "Diamond", "Dinghy", "Dog", "Dolphin", "Door", "Dory", "Drawer", "Drifter", "Dugout", "Dungeon", "Durham",
             "Eagle", "Earth", "Easel", "Ecology", "Elf", "Emerald", "Engine", "Express", "Fact", "Family", "Fantasy",
             "Ferry", "Fighter", "Fire", "Fish", "Flame", "Float", "Flute", "Fly", "Force", "Forest", "Fork",
