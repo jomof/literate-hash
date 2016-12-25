@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/jomof/literate-hash.svg?branch=master)](https://travis-ci.org/jomof/literate-hash)
 [![](https://jitpack.io/v/com.jomofisher/literate-hash.svg)](https://jitpack.io/#com.jomofisher/literate-hash)
 [![codecov](https://codecov.io/gh/jomof/literate-hash/branch/master/graph/badge.svg)](https://codecov.io/gh/jomof/literate-hash)
+[![license](https://img.shields.io/github/license/jomof/literate-hash.svg)](https://github.com/jomof/literate-hash/blob/master/LICENSE.txt)
 
 # Literate Hash
 Creates a hash code that is human-readable and easier to remember than a 32-bit number.
